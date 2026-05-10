@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>César Eduardo | Filosofía, libros y pensamiento</title>
+  <meta name="description" content="Página oficial de César Eduardo: filosofía, libros, manifiestos, conferencias, videolibros y proyectos académicos." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f7f3ea;
+      color: #1f1b16;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(247, 243, 234, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #dfd2bd;
+      padding: 14px 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(60, 42, 20, 0.08);
+    }
+
+    nav a {
+      color: #1f1b16;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #7a5c32;
+    }
+
+    header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 120px 20px 70px;
+      background:
+        linear-gradient(90deg, rgba(31, 27, 22, 0.78) 0%, rgba(31, 27, 22, 0.45) 42%, rgba(31, 27, 22, 0.08) 78%),
+        url("assets/img/cesar-arco-paris.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: #fffaf0;
+    }
+
+    .hero {
+      width: min(760px, 100%);
+      margin-left: clamp(0px, 6vw, 80px);
+      padding: clamp(26px, 4vw, 48px);
+      background: rgba(31, 27, 22, 0.42);
+      border: 1px solid rgba(247, 243, 234, 0.28);
+      border-radius: 28px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(3px);
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: #e8dcc8;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+      font-weight: normal;
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.65rem);
+      max-width: 680px;
+      margin: 0 0 34px;
+      color: #fff4df;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid #1f1b16;
+      text-decoration: none;
+      color: #1f1b16;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+
+    header .button {
+      border-color: #fffaf0;
+      color: #fffaf0;
+    }
+
+    .button.primary {
+      background: #1f1b16;
+      color: #f7f3ea;
+    }
+
+    header .button.primary {
+      background: #fffaf0;
+      color: #1f1b16;
+      border-color: #fffaf0;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    }
+
+    section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      scroll-margin-top: 86px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: normal;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: #fffaf0;
+      border: 1px solid #dfd2bd;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(60, 42, 20, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #4b4032;
+    }
+
+    .quote {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.25;
+      color: #3f3528;
+      border-left: 4px solid #7a5c32;
+      padding-left: 24px;
+      margin-top: 24px;
+    }
+
+    .amazon-box,
+    .coming-soon-box {
+      margin-top: 34px;
+      background: #fffaf0;
+      border: 2px solid #1f1b16;
+      border-radius: 26px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 14px 34px rgba(60, 42, 20, 0.1);
+    }
+
+    .amazon-box h3,
+    .coming-soon-box h3 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    .amazon-label,
+    .section-label {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.78rem;
+      color: #7a5c32;
+      margin-bottom: 10px;
+    }
+
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .gallery-preview img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+      border: 1px solid #dfd2bd;
+      box-shadow: 0 14px 34px rgba(60, 42, 20, 0.12);
+    }
+
+    footer {
+      background: #1f1b16;
+      color: #f7f3ea;
+      padding: 46px 20px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    footer a {
+      color: #f7f3ea;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        padding: 10px 12px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 7px;
+        font-size: 0.88rem;
+      }
+
+      header {
+        min-height: 92vh;
+        padding-top: 150px;
+        background-position: 62% center;
+      }
+
+      .hero {
+        margin-left: 0;
+        background: rgba(31, 27, 22, 0.58);
+      }
+
+      section {
+        padding: 60px 18px;
+        scroll-margin-top: 118px;
+      }
+
+      .gallery-preview {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#obra">Obra</a>
+    <a href="#galeria">Galería</a>
+    <a href="#conferencias">Conferencias</a>
+    <a href="#videolibros">Videolibros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <header>
+    <div class="hero">
+      <div class="eyebrow">Filosofía · Escritura · Ideas Plausibles</div>
+      <h1>César Eduardo</h1>
+      <p class="subtitle">Una obra dedicada al pensamiento, la experiencia y la formulación de Ideas Plausibles.</p>
+      <div class="buttons">
+        <a class="button primary" href="#obra">Ver obra</a>
+        <a class="button" href="#galeria">Galería</a>
+        <a class="button" href="#videolibros">Videolibros</a>
+        <a class="button" href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <p>Soy César Eduardo. Trabajo desde la filosofía, la escritura y la reflexión personal para explorar cómo nacen, se sostienen y se transforman las ideas que orientan una vida.</p>
+    <p>Mi proyecto intelectual gira alrededor de las Ideas Plausibles: una forma de pensar aquello que no siempre puede demostrarse de manera definitiva, pero que aun así merece ser formulado, examinado y vivido con seriedad.</p>
+    <p>Esta página reúne mis libros, manifiestos, proyectos, conferencias, videolibros y futuras publicaciones.</p>
+  </section>
+
+  <section id="obra">
+    <h2>Obra</h2>
+    <p>Estos son los textos principales que conforman actualmente mi proyecto filosófico y editorial.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Manifiesto Académico Filosófico</h3>
+        <p>Una obra en desarrollo sobre pensamiento, experiencia, filosofía e Ideas Plausibles.</p>
+        <p><strong>Estado:</strong> preparación para publicación digital e impresa.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tratado de las Ideas Plausibles</h3>
+        <p>Concepto central de mi trabajo filosófico. Una invitación a pensar lo posible, lo razonable y lo vital sin reducirlo todo a certezas absolutas.</p>
+        <p><strong>Estado:</strong> texto en preparación.</p>
+      </div>
+
+      <div class="card">
+        <h3>De los espíritus filosóficos, de los espíritus del conocimiento y de la vida misma</h3>
+        <p>Un texto filosófico dedicado a explorar las formas del pensamiento, el conocimiento, la vida interior y las fuerzas espirituales que orientan la experiencia humana.</p>
+        <p><strong>Estado:</strong> texto en desarrollo.</p>
+      </div>
+    </div>
+
+    <div class="amazon-box">
+      <p class="amazon-label">Publicación editorial</p>
+      <h3>Próximamente en Amazon</h3>
+      <p>Las obras de César Eduardo estarán disponibles próximamente en formato digital e impreso a través de Amazon.</p>
+      <a class="button primary" href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">Ver Amazon</a>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2>Galería</h2>
+    <p>Espacio reservado para fotografías, viajes, presentaciones, lecturas y momentos relacionados con el desarrollo de la obra.</p>
+
+    <div class="gallery-preview">
+      <img src="assets/img/cesar-arco-paris.jpg" alt="César Eduardo frente al Arco del Triunfo en París" />
+      <div class="coming-soon-box">
+        <p class="section-label">Archivo visual</p>
+        <h3>Galería en construcción</h3>
+        <p>Próximamente se añadirán más imágenes y materiales visuales del proyecto filosófico y editorial.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="conferencias">
+    <h2>Conferencias y presentaciones</h2>
+    <p>El libro es el punto de partida. El pensamiento también necesita voz, presencia y conversación.</p>
+    <p>Estoy desarrollando presentaciones, charlas y formatos en vivo alrededor de la filosofía, la creatividad, la experiencia personal y las Ideas Plausibles.</p>
+    <p class="quote">«Pensar también es presentarse ante el mundo con una idea que todavía está buscando su forma.»</p>
+  </section>
+
+  <section id="videolibros">
+    <h2>Videolibros</h2>
+    <p>Este espacio reunirá videos, lecturas, presentaciones y futuros videolibros relacionados con mis obras filosóficas.</p>
+    <div class="coming-soon-box">
+      <p class="section-label">Canal audiovisual</p>
+      <h3>Próximamente en YouTube</h3>
+      <p>Mientras se organiza el canal definitivo, este botón queda preparado para dirigir a YouTube.</p>
+      <a class="button primary" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Ir a YouTube</a>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Para conversaciones, propuestas, invitaciones académicas, presentaciones o proyectos editoriales, puedes escribirme a:</p>
+    <p><strong>cesar.riveros.filosofia@gmail.com</strong></p>
+    <p><strong>+57 3151888875</strong></p>
+    <p>Próximamente: enlaces a libros, videos, redes y materiales descargables.</p>
+  </section>
+
+  <footer>
+    <p>© 2026 César Eduardo. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
